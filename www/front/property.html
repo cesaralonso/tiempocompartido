@@ -1,0 +1,287 @@
+<div id="content">
+  <div class="bg-white">
+    <div class="container">
+      <div class="page-section">
+        
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="page-header text-primary">{{membresia.enlace_des}}</h1>
+          </div>
+        </div>
+        <div class="row">
+          
+          
+          <div class="col-md-8">
+            <div class="row" style="margin:0 auto; margin-bottom: 30px;">
+              <wallop-slider
+              data-images="images"
+              data-animation="rotate"
+              data-current-item-index="index"
+              data-on-previous="updateTsPrevious()"
+              data-on-next="updateTsNext()"
+              ></wallop-slider>
+            </div>
+            <div class="row">
+              
+              <h1 class="text-h1">{{membresia.club}}</h1>
+              <p class="lead">{{membresia.ciudad}}, {{membresia.estado}}, {{membresia.pais}}</p>
+              <p>
+                {{membresia.enlace_des}},
+                <span ng-show="membresia.renta">Rento </span>
+                <span ng-show="membresia.venta">Vendo </span>
+                {{membresia.tipo_unidad}} vacacional,
+                tipo de semana {{membresia.tipo_semana}} con
+                {{membresia.dormitorios}} dormitorios,
+                {{membresia.banos}} baños,
+                capacidad para {{membresia.cap_max}} personas máximo,
+                capacidad con privacidad de {{membresia.cap_privacidad}} personas,
+                {{membresia.tipo_cocina}} y mucho mas..
+              </p>
+              
+              <div class="well text-h4 bg-lightred" ng-show="membresia.precio_renta">Precio Renta: <strong>{{membresia.precio_renta | currency:"$":0}}</strong> <small>{{membresia.moneda_renta}}</small> <strong ng-show="membresia.precio_neg_renta">Negociable</strong></div>
+              
+              <div class="well text-h4 bg-lightred" ng-show="membresia.precio_venta">Precio Venta: <strong>{{membresia.precio_venta | currency:"$":0}}</strong> <small>{{membresia.moneda_venta}}</small> <strong ng-show="membresia.precio_neg_venta">Negociable</strong></div>
+              <h4>Descripción</h4>
+              <div class="panel bg-transparent">
+                <div class="expandable expandable-trigger">
+                  <div class="expandable-content">
+                    <p>{{membresia.informacion}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--
+            <slick class="slick-basic slick-slider" init-onload="true"  data="membresia.imagen" dots="true" infinite="true" speed="300" slides-to-show="1" touch-move="true" slides-to-scroll="1" current-index="inicio" responsive="breakpoints" >
+            <div class="item"  data-ng-repeat="imagen in membresia.imagen">
+              <img  ng-src="{{imagen.dirImgs}}{{imagen.src}}" alt="{{imagen.descripcion}}" />
+            </div>
+            </slick>
+            -->
+          </div>
+          <div class="col-md-4 margin-none">
+            
+            <div class="col-md-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">Características</h4>
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-sm-12 col-xs-12">
+                      <ul class="property-facilities">
+                        <li class="list-group-item"><i class="fa fa-fw icon icon-home-2"></i> {{membresia.tipo_unidad}}</li>
+                        <li class="list-group-item"><i class="fa fa-fw icon icon-bed"></i> {{membresia.dormitorios}} Cuartos</li>
+                        <li class="list-group-item"><i class="fa fa-fw icon icon-toilet"></i> {{membresia.banos}} Baños</li>
+                        <li class="list-group-item"><i class="fa fa-fw fa-user text-red-500"></i> {{membresia.cap_max}} Personas máx.</li>
+                        <li class="list-group-item"><i class="fa fa-kitchen icon icon-food"></i> {{membresia.tipo_cocina}}</li>
+                        <li class="list-group-item" ng-show="membresia.sala"><i class="fa fa-fw icon icon-star"></i> Sala</li>
+                        <li class="list-group-item"><i class="fa fa-user icon icon-user"></i> Capacidad con privacidad {{membresia.cap_privacidad}}</li>
+                        <li class="list-group-item"><i class="fa fa-star icon icon-star"></i> {{membresia.tipo_semana}}</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">Servicios</h4>
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-sm-12 col-xs-12">
+                      <ul class="property-facilities">
+                        <li ng-repeat="caracteristica in membresia.caracteristicas"><i class="fa fa-star"></i> {{caracteristica}}</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="equal-padding text-center">
+              <h4>Contactar propietario</h4>
+              <p>
+                <img src="images/people/110/woman-3.jpg" alt="woman" class="img-circle" width="80" />
+              </p>
+              <p>
+                <ul class="text-left">
+                  <li><strong>Nombre: </strong>{{membresia.usuario.nombre}}</li>
+                  <li><strong>Status: </strong>{{membresia.usuario.status}}</li>
+                  <li><strong>Tipo de usuario: </strong>{{membresia.usuario.tipo_usuario}}</li>
+                  <li><strong>Email: </strong>{{membresia.usuario.email}}</li>
+                  <li><strong>Ciudad: </strong>{{membresia.usuario.ciudad}}</li>
+                  <li><strong>Pais: </strong>{{membresia.usuario.pais}}</li>
+                  <li><strong>Lenguaje: </strong>{{membresia.usuario.lenguajes}}</li>
+                  <li><strong>Telefono: </strong>{{membresia.usuario.telefono}}</li>
+                  <li><strong>Celular: </strong>{{membresia.usuario.celular}}</li>
+                  <!--
+                  <li><a href="#" class="sidebar-link">Website</a></li>
+                  -->
+                </ul>
+              </p>
+              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalPropietario">
+              Contactar propietario
+              </button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="page-section">
+        <div class="container">
+          <div class="row">
+            
+            <div class="col-md-8">
+              <div class="equal-padding text-left">
+                <h4><i class="fa fa-fw fa-map-marker"></i> Ubicación en mapa</h4>
+                
+                <div class="row">
+                  
+                  <div id="map" class="panel height-300" style="width:100%;"></div>
+                  <div id="class" ng-repeat="marker in markers | orderBy : 'title'">
+                    <a href="#" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>
+                  </div>
+                  <!--
+                  <ui-gmap-google-map center='map.center' zoom='map.zoom'  class="panel height-300 relative"></ui-gmap-google-map>
+                  -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8">
+              <h4>Comentarios</h4>
+              <form>
+                <div class="form-group input-group">
+                  <input type="text" class="form-control" placeholder="Agrega tus comentarios.." ng-model="comentario"></input>
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" type="button" ng-click="agregaComentario()"><i class="fa fa-plus"></i></button>
+                  </span>
+                </div>
+              </form>
+              <section ng-class="{'comment-reply': comentario.lresp}"
+                ng-repeat="comentario in membresia.comentarios">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <div class="media">
+                      <a class="media-left" href="">
+                        <img class="media-object" src="images/people/50/woman-5.jpg" alt="people" />
+                      </a>
+                      <div class="media-body">
+                        <small class="text-grey-400 pull-right">{{comentario.fecha}}</small>
+                        <h5 class="media-heading margin-v-5">{{comentario.user}}</h5>
+                        <p class="margin-none">{{comentario.texto}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="col-md-4">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="page-section">
+        <h3>Propiedades Relacionadas</h3>
+        <slick class="slick-basic slick-slider" init-onload="true"  data="relacionadas" dots="true" infinite="true" speed="300" slides-to-show="5" touch-move="true" slides-to-scroll="3" current-index="inicio" responsive="breakpoints" >
+        <div class="item"  data-ng-repeat="relacionada in relacionadas">
+          <div class="panel panel-default relative">
+            <div class="ribbon-heading text-h5 ribbon-primary inline margin-none left absolute">{{relacionada.ciudad}}</div>
+            <a ng-href="#/property?idMem={{relacionada.idMem}}" title="{{relacionada.enlace_des}}">
+              <div class="cover hover margin-none">
+                <img ng-src="{{relacionada.imagen.0.dirImgsThumbs}}{{relacionada.imagen.0.src}}" alt="{{relacionada.club}}" class="img-responsive" />
+              </div>
+            </a>
+            <div class="panel-body">
+              <h4 class="margin-v-0-5">{{relacionada.club}}</h4>
+              <p>{{relacionada.informacion}}</p>
+              <span class="label label-grey-100" ng-show="relacionada.precio_venta">Venta {{relacionada.precio_venta | currency:"$":0}} {{relacionada.moneda_venta}}</span>
+              <span class="label label-grey-100" ng-show="relacionada.precio_renta">Renta {{relacionada.precio_renta | currency:"$":0}} {{relacionada.moneda_renta}}</span>
+              <i class="small fa fa-fw icon-home-fill-1" data-toggle="tooltip" data-title="{{relacionada.tipo_semana}}"></i>
+            </div>
+          </div>
+        </div>
+        </slick>
+      </div>
+
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modalPropietario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Contactar propietario</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <form action="#">
+                <div class="col-lg-6">
+                  <div class="form-group form-control-default required">
+                    <label for="fullname">Nombre completo</label>
+                    <input type="text" placeholder="Ingresa tu nombre completo" ng-model="contacto.fullname" class="form-control" id="fullname" />
+                  </div>
+                  <div class="form-group form-control-default required">
+                    <label for="phone">Teléfono con Lada </label>
+                    <input type="text" placeholder="Ingresa tu teléfono (LADA) + 10 Dígitos"  ng-model="contacto.telefono"class="form-control" id="phone" />
+                    
+                  </div>
+                  <div class="form-group form-control-default required">
+                    <label for="email">Dirección de Correo electrónico </label>
+                    <input type="text" placeholder="Ingresa tu Email" class="form-control" ng-model="contacto.email" id="email" />
+                  </div>
+                  <div class="form-group form-control-default ">
+                    <label for="action">Me interesa para:</label>
+                    <select name="" ng-model="contacto.interes" id="action" class="form-control">
+                      <option value="Renta">Renta</option>
+                      <option value="Compra">Compra</option>
+                    </select>
+                  </div>
+
+                </div>
+                
+                
+                <div class="col-md-6 visible-lg text-center">
+                  <div class="profile">
+                    <img src="images/people/110/woman-3.jpg" alt="people" class="img-circle" />
+                    <h4 class="sidebar-heading">{{membresia.usuario.user}}</h4>
+                  </div>
+                  <ul class="text-left">
+                    <li><strong>Nombre: </strong>{{membresia.usuario.nombre}}</li>
+                    <li><strong>Status: </strong>{{membresia.usuario.status}}</li>
+                    <li><strong>Tipo de usuario: </strong>{{membresia.usuario.tipo_usuario}}</li>
+                    <li><strong>Email: </strong>{{membresia.usuario.email}}</li>
+                    <li><strong>Ciudad: </strong>{{membresia.usuario.ciudad}}</li>
+                    <li><strong>Pais: </strong>{{membresia.usuario.pais}}</li>
+                    <li><strong>Lenguaje: </strong>{{membresia.usuario.lenguajes}}</li>
+                    <li><strong>Telefono: </strong>{{membresia.usuario.telefono}}</li>
+                    <li><strong>Celular: </strong>{{membresia.usuario.celular}}</li>
+                    <!--
+                    <li><a href="#" class="sidebar-link">Website</a></li>
+                    -->
+                  </ul>
+                </div>
+                <div class="col-lg-12">
+                  <div class="form-group form-control-default required">
+                    <label for="mensaje">Mensaje </label>
+                    <textarea ng-model="contacto.mensaje" placeholder="Ingresa tu Mensaje" class="form-control" name="mensaje" id="mensaje"></textarea>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary" ng-click="enviarContacto()">Enviar</button>
+            </div>
+          </div>
+        </div>
+      </div>

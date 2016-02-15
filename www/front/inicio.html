@@ -1,0 +1,280 @@
+<div ng-include="'partials/slider-full.html'"></div>
+
+<div id="content">
+  <div class="bg-white">
+    <div class="container">
+
+      <div class="page-section">
+        <div class="text-center">
+          <i class="fa fa-home fa-5x text-grey-300"></i>
+          <h1 class="text-h2">{{titulo1}}</h1>
+          <hr/>
+          <p class="lead">{{texto1}}</p>
+        </div>
+        <br/>
+      </div>
+
+      <div class="page-section">
+        <h3>Propiedades DESTACADAS</h3>        
+        <slick class="slick-basic slick-slider" init-onload="true"  data="membresias.data" dots="true" infinite="true" speed="300" slides-to-show="5" touch-move="true" slides-to-scroll="3" current-index="inicio" responsive="breakpoints" >
+          <div class="item"  data-ng-repeat="membresia in membresias.data">
+            <div class="panel panel-default relative">
+              <div class="ribbon-heading text-h5 ribbon-primary inline margin-none left absolute">{{membresia.ciudad}}</div>
+               <a ng-href="#/property?idMem={{membresia.idMem}}" title="{{membresia.enlace_des}}">
+                <div class="cover hover margin-none">
+                  <img ng-src="{{membresia.imagen.0.dirImgsThumbs}}{{membresia.imagen.0.src}}" alt="{{membresia.club}}" class="img-responsive" />
+                </div> 
+              </a>
+              <div class="panel-body">
+                <h4 class="margin-v-0-5">{{membresia.club}}</h4>
+                <p>{{membresia.informacion}}</p>
+                <span class="label label-grey-100" ng-show="membresia.precio_venta">Venta {{membresia.precio_venta | currency:"$":0}} {{membresia.moneda_venta}}</span>
+                <span class="label label-grey-100" ng-show="membresia.precio_renta">Renta {{membresia.precio_renta | currency:"$":0}} {{membresia.moneda_renta}}</span>
+                <i class="small fa fa-fw icon-home-fill-1" data-toggle="tooltip" data-title="{{membresia.tipo_semana}}"></i>
+              </div>
+            </div>
+          </div>
+        </slick>
+      </div>
+ 
+
+
+
+
+
+
+
+  <div class="page-section">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="panel panel-default" data-toggle="panel-collapse" data-open="true">
+          <div class="panel-heading panel-collapse-trigger">
+            <h4 class="panel-title">Destino</h4>
+          </div>
+          <div class="panel-body">
+            <div class="form-group">
+
+              <select ng-model="buscador.ciudad" name="ciudad" class="form-control" style="width:100%" data-toggle="select2"><optgroup label="Argentina"><option value="Bariloche">Bariloche</option><option value="Buenos Aires">Buenos Aires</option><option value="Cabalango">Cabalango</option><option value="Capital Federal">Capital Federal</option><option value="Carlos Paz">Carlos Paz</option><option value="Caviahue">Caviahue</option><option value="Chapadmalal">Chapadmalal</option><option value="Costa Del Este">Costa Del Este</option><option value="Las Grutas">Las Grutas</option><option value="Las Le&amp;ntilde;as">Las Leñas</option><option value="Maipu">Maipu</option><option value="Malargue">Malargue</option><option value="Mar Del Plata">Mar Del Plata</option><option value="Pinamar">Pinamar</option><option value="San Bernardo">San Bernardo</option><option value="San Carlos De Bariloche">San Carlos De Bariloche</option><option value="San Carolos De Bariloche">San Carolos De Bariloche</option><option value="San Martin De Los Andes">San Martin De Los Andes</option><option value="Villa Carlos Paz">Villa Carlos Paz</option><option value="Villa La Angostura">Villa La Angostura</option></optgroup><optgroup label="Aruba"><option value="Aruba">Aruba</option><option value="Aruba-oranjestad">Aruba-oranjestad</option><option value="Eagle Beach">Eagle Beach</option><option value="Oranjestad">Oranjestad</option></optgroup><optgroup label="Belice"><option value="Cayo Ambergris">Cayo Ambergris</option></optgroup><optgroup label="Brasil"><option value="Buzios">Buzios</option><option value="Fortaleza">Fortaleza</option><option value="Porto Belo">Porto Belo</option></optgroup><optgroup label="Canada"><option value="Whistler">Whistler</option></optgroup><optgroup label="Chile"><option value="Con Con">Con Con</option><option value="Pucon">Pucon</option><option value="Re&amp;ntilde;aca">Reñaca</option><option value="Santiago">Santiago</option><option value="Vi&amp;ntilde;a Del Mar">Viña Del Mar</option><option value="Villarrica">Villarrica</option></optgroup><optgroup label="Colombia"><option value="Baq">Baq</option><option value="Bogota">Bogota</option><option value="Cartagena">Cartagena</option><option value="Santa Marta">Santa Marta</option></optgroup><optgroup rica="" label="Costa"><option value="10 Minutos De El Coco">10 Minutos De El Coco</option><option value="Alajuela">Alajuela</option><option value="Carrillo">Carrillo</option><option value="El Roble">El Roble</option><option value="El Roble Puntarenas">El Roble Puntarenas</option><option value="Guanacaste">Guanacaste</option><option value="La Cruz">La Cruz</option><option value="Liberia">Liberia</option><option value="Nicoya">Nicoya</option><option value="Playa Hermosa">Playa Hermosa</option><option value="Playas Del Coco">Playas Del Coco</option><option value="Puntarenas">Puntarenas</option><option value="Santa Cruz Gte.">Santa Cruz Gte.</option></optgroup><optgroup label="Ecuador"><option value="Gal&amp;aacute;pagos">Galápagos</option><option value="Salinas">Salinas</option></optgroup><optgroup label="España"><option value="Alfas Del Pi  Alicante">Alfas Del Pi  Alicante</option><option value="Alicante">Alicante</option><option value="Almeria">Almeria</option><option value="Benalmadena">Benalmadena</option><option value="Benalmadena-malaga">Benalmadena-malaga</option><option value="Cambrils">Cambrils</option><option value="Denia">Denia</option><option value="Gran Canaria">Gran Canaria</option><option value="Ibiza">Ibiza</option><option value="La Manga Del Mar Menor">La Manga Del Mar Menor</option><option value="Madrid">Madrid</option><option value="Malaga">Malaga</option><option value="Malaga - Benalmadena Costa">Malaga - Benalmadena Costa</option><option value="Mijas Costa Malaga">Mijas Costa Malaga</option><option value="Mostoles">Mostoles</option><option value="Oropesa Del Mar (castellon)">Oropesa Del Mar (castellon)</option><option value="Pe&amp;ntilde;iscola">Peñiscola</option><option value="Pe&amp;ntilde;iscola(castellon)">Peñiscola(castellon)</option><option value="Salou">Salou</option><option value="Salou Tarragona">Salou Tarragona</option><option value="Santa Cruz De Tenerife">Santa Cruz De Tenerife</option><option value="Tenerife">Tenerife</option><option value="Torrevieja(alicante)">Torrevieja(alicante)</option></optgroup><optgroup unidos="" label="Estados"><option value="Breckenridge">Breckenridge</option><option value="Canyon Lake">Canyon Lake</option><option value="Cleremont">Cleremont</option><option value="Fairfield Bay">Fairfield Bay</option><option value="Fort Lauderdale">Fort Lauderdale</option><option value="Fourt Laudardele">Fourt Laudardele</option><option value="Isla Del Padre">Isla Del Padre</option><option value="Kissimmee">Kissimmee</option><option value="Lake Buena Vista">Lake Buena Vista</option><option value="Las Vegas">Las Vegas</option><option value="Manhattan">Manhattan</option><option value="Miami">Miami</option><option value="Orlando">Orlando</option><option value="Pompano Beach">Pompano Beach</option><option value="Rio Grande">Rio Grande</option><option value="South Padre Island-isla Del Padre">South Padre Island-isla Del Padre</option><option value="Vail">Vail</option><option value="Waikoloa">Waikoloa</option><option value="Weston">Weston</option></optgroup><optgroup label="Jamaica"><option value="Main Street">Main Street</option></optgroup><optgroup label="Martinique"></optgroup><optgroup label="Mexico"><option value="Acapulco">Acapulco</option><option value="Acapulco Diamante">Acapulco Diamante</option><option value="Cabo San Lucas">Cabo San Lucas</option><option value="Cacun">Cacun</option><option value="Canc&amp;uacute;n">Cancún</option><option value="Chihuahua">Chihuahua</option><option value="Ciudad De Mexico">Ciudad De Mexico</option><option value="Coacalco">Coacalco</option><option value="Congregacion Canoas">Congregacion Canoas</option><option value="Cordoba">Cordoba</option><option value="Coyoacan">Coyoacan</option><option value="Cozumel">Cozumel</option><option value="Cuautitlan Izcalli">Cuautitlan Izcalli</option><option value="Cuernavaca">Cuernavaca</option><option value="Distrito Federal">Distrito Federal</option><option value="Durango">Durango</option><option value="Guadalajara">Guadalajara</option><option value="Hermosillo">Hermosillo</option><option value="Irapuato">Irapuato</option><option value="Ixtapa">Ixtapa</option><option value="Ixtapa Zihuatanejo">Ixtapa Zihuatanejo</option><option value="Jalisco">Jalisco</option><option value="Juarez">Juarez</option><option value="Leon">Leon</option><option value="Los Cabos">Los Cabos</option><option value="Manzanillo">Manzanillo</option><option value="Mazatl&amp;aacute;n">Mazatlán</option><option value="MazatlÃ&nbsp;n">MazatlÃ&nbsp;n</option><option value="Mexicali">Mexicali</option><option value="Mexico">Mexico</option><option value="Monterrey">Monterrey</option><option value="Morelia">Morelia</option><option value="P. Pe&amp;ntilde;aco">P. Peñaco</option><option value="Para Ser Usado En Cualquier Desarrollo De Royal Holiday Club">Para Ser Usado En Cualquier Desarrollo De Royal Holiday Club</option><option value="Places In Mexico">Places In Mexico</option><option value="Playa Del Carmen">Playa Del Carmen</option><option value="Puerto Morelos">Puerto Morelos</option><option value="Puerto Pe&amp;ntilde;asco">Puerto Peñasco</option><option value="Puerto Vallarta">Puerto Vallarta</option><option value="Queretaro">Queretaro</option><option value="Rio Lagartos">Rio Lagartos</option><option value="Riviera Maya">Riviera Maya</option><option value="Salamanca">Salamanca</option><option value="San Jose Del Cabo">San Jose Del Cabo</option><option value="San Luis Potosi">San Luis Potosi</option><option value="Santiago N.l.">Santiago N.l.</option><option value="Solidaridad">Solidaridad</option><option value="Talquepaque">Talquepaque</option><option value="Tapachula">Tapachula</option><option value="Tequesquitengo">Tequesquitengo</option><option value="Tequisqiapan">Tequisqiapan</option><option value="Tlalnepantla">Tlalnepantla</option><option value="Varios Destinos">Varios Destinos</option><option value="Varios Sitios">Varios Sitios</option><option value="Venustiano Carranza">Venustiano Carranza</option><option value="Villahermosa">Villahermosa</option><option value="Zapopan">Zapopan</option></optgroup><optgroup dominicana="" label="Republica"><option value="Bavaro">Bavaro</option><option value="Bavaro-punta Cana">Bavaro-punta Cana</option><option value="Bayahibe">Bayahibe</option><option value="Higuey">Higuey</option><option value="Higuey - Punta Cana">Higuey - Punta Cana</option><option value="Playa Bavaro">Playa Bavaro</option><option value="Punta Cana">Punta Cana</option><option value="Punta Cana (playa Bavaro)">Punta Cana (playa Bavaro)</option></optgroup><optgroup label="Uruguay"><option value="Punta Del Este">Punta Del Este</option><option value="Solanas">Solanas</option></optgroup><optgroup label="Venezuela"><option value="Margarita">Margarita</option><option value="Pampatar">Pampatar</option><option value="Pampatar/ Isla Margarita">Pampatar/ Isla Margarita</option><option value="Porlamar">Porlamar</option></optgroup></select>
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <div class="panel panel-default" data-toggle="panel-collapse" data-open="false">
+          <div class="panel-heading panel-collapse-trigger">
+            <h4 class="panel-title">Busco en</h4>
+          </div>
+          <div class="panel-body">
+
+            <div class="form-group">
+              <label class="label-block" for="check-in">Tipo</label>
+               <select ng-model="buscador.tipo" name="categoria" class="form-control" style="width:100%"><option value="renta">Renta</option><option value="venta">Venta</option></select>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="panel panel-default" data-toggle="panel-collapse" data-open="false">
+          <div class="panel-heading panel-collapse-trigger">
+            <h4 class="panel-title">Fechas</h4>
+          </div>
+          <div class="panel-body">
+
+            <div class="form-group">
+              <label class="label-block" for="check-in">Entrada</label>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                <input ng-model="buscador.fechain" id="check-in" class="datepicker form-control" type="text" value="dd/mm/yyyy" />
+              </div>
+            </div>
+            <div class="form-group margin-none">
+              <label class="label-block" for="check-out">Salida</label>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                <input ng-model="buscador.fechaout" id="check-out" class="datepicker form-control" type="text" value="dd/mm/yyyy" />
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="panel panel-default" data-toggle="panel-collapse" data-open="true">
+          <div class="panel-heading panel-collapse-trigger">
+            <h4 class="panel-title">Alojamiento</h4>
+          </div>
+          <div class="panel-body">
+
+            <div class="form-group">
+              <label for="guests">Personas máximo:</label>
+              <input ng-model="buscador.persmax" id="guests" data-toggle="touch-spin" data-verticalbuttons="true" type="text" value="3" name="guests" class="form-control" />
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row text-center">
+          <div class="col-xs-12">
+            <button class="btn btn-block btn-success" ng-click="busqueda(buscador)">¡Buscar!</button>
+          </div>
+
+        </div>
+        <br/>
+      </div>
+      <div class="col-md-9">
+
+        <div class="row">
+          <div class="col-xs-6">
+            <h4><span class="text-primary">{{total}}</span> Resultados</h4>
+          </div>
+          <div class="col-xs-6 text-right">
+           <!-- 
+            <div class="dropdown display-inline-block">
+              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                Ordenar por:
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu pull-right">
+                <li><a href="#">Recien publicados</a></li>
+                <li><a href="#">Mayor precio</a></li>
+                <li><a href="#">Menor precio</a></li>
+              </ul>
+            </div>
+            -->
+
+          </div>
+        </div>
+        <br/>
+
+       
+        <div class="panel panel-default" ng-repeat="resultado in resultados.data">
+          <div class="panel-body">
+            <div class="media media-clearfix-xs media-clearfix-sm">
+              <div class="media-left">
+                <p>
+
+
+                  <a ng-href="#/property?idMem={{resultado.idMem}}" title="{{resultado.enlace_des}}">
+                    <div class="cover hover margin-none">
+                      <img ng-src="{{resultado.imagen.0.dirImgsThumbs}}{{resultado.imagen.0.src}}" alt="{{resultado.club}}"  width="150" class="media-object" />
+                    </div> 
+                  </a>
+
+
+                </p>
+                <div class="text-center small">
+
+                <span class="label label-grey-100" ng-show="resultado.precio_venta">Venta {{resultado.precio_venta | currency:"$":0}} {{resultado.moneda_venta}}</span>
+                <span class="label label-grey-100" ng-show="resultado.precio_renta">Renta {{resultado.precio_renta | currency:"$":0}} {{resultado.moneda_renta}}</span>
+
+                </div>
+              </div>
+              <div class="media-body">
+                <div class="pull-right">
+                  {{resultado.ciudad}}, {{resultado.estado}}, {{resultado.pais}}
+                </div>
+                <h4 class="media-heading margin-v-0-10">
+                  <a ui-sref="front.property">{{resultado.club}}</a>
+                  <small class="text-grey-400"><i class="fa fa-clock-o fa-fw"></i>{{resultado.fecha}}</small>
+                </h4>
+                <p>
+
+                  <span class="label label-grey-100" ng-show="resultado.tipo_unidad"><i class="fa fa-fw icon icon-home-2"></i> {{resultado.tipo_unidad}}</span>
+                  <span class="label label-grey-100" ng-show="resultado.dormitorios"><i class="fa fa-fw icon icon-bed"></i> {{resultado.dormitorios}} Cuartos</span>
+                  <span class="label label-grey-100" ng-show="resultado.banos"><i class="fa fa-fw icon icon-toilet"></i> {{resultado.banos}} Baños</span>
+                  <span class="label label-grey-100" ng-show="resultado.cap_max"><i class="fa fa-fw fa-user text-red-500"></i> {{resultado.cap_max}} Personas máx.</span>
+                  <span class="label label-grey-100" ng-show="resultado.tipo_cocina"><i class="fa fa-kitchen icon icon-food"></i> {{resultado.tipo_cocina}}</span>
+                  <span class="label label-grey-100" ng-show="resultado.sala"><i class="fa fa-fw icon icon-star"></i> Sala</span>
+                  <span class="label label-grey-100" ng-show="resultado.tipo_semana"><i class="fa fa-star icon icon-star"></i> Tipo de semana {{resultado.tipo_semana}}</span>
+
+
+                </p>
+                <p class="margin-none">{{resultado.informacion}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <ul class="pagination margin-top-none">
+          <li class="disabled"><a href="#">&laquo;</a></li>
+          <li class="active"><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">&raquo;</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+      <div class="page-section">
+      
+
+        <div class="page-header text-center">
+          <i class="fa fa-comments-o fa-5x text-grey-300"></i>
+          <h3 class="text-h2">Testimonos de usuarios de tiempos compatidos</h3>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="media">
+              <div class="media-left">
+                <img src="images/people/50/guy-6.jpg" alt="People" class="img-circle media-object" />
+              </div>
+              <div class="media-body">
+                <p>En verdad no me imaginaba que sería la mejor experiencia de viaje en familia que podría tener, no solo es mucho mas barato, ¡la exclusividad es increible!.</p>
+                <p>
+                  <strong>Mario Aldama Casillas. <span class="text-muted">.</span></strong>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="media">
+              <div class="media-left">
+                <img src="images/people/50/guy-2.jpg" alt="People" class="pull-left img-circle media-object" />
+              </div>
+              <div class="media-body">
+                <p>Invito a cualqueira a probar viajar con tiempos compartidos, tengo 10 años viajando con mi familia intercambiando en la red cada año en hoteles sorprendentes, viajando con toda la familia, es maravilloso.</p>
+                <p>
+                  <strong>Mario A. Robles P. <span class="text-muted">.</span></strong>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="media">
+              <div class="media-left">
+                <img src="images/people/50/guy-9.jpg" alt="People" class="img-circle media-object" />
+              </div>
+              <div class="media-body">
+                <p>No conocia lo que eran los tiempos compartidos, solo puedo decir que es mucho mas barato que pagar noches de hotel viajamos dos familias a los mejores hoteles del mundo, pagando precios increibles, son semanas increibles que vivimos cada año. ¡Los invito a probar!</p>
+                <p>
+                  <strong>Raúl Villa L. <span class="text-muted">.</span></strong>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+    <!-- // END .container -->
+
+  </div>
+  <!-- // END .bg-white -->
+
+</div>

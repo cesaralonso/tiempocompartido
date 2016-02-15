@@ -1,0 +1,138 @@
+
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation" >
+    <div class="container-fluid">
+    
+      <div class="container">
+        
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" ui-sref="front.home-slider"><i class="md fa-fw md-home text-primary"></i> Tiempo Compartido</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="main-nav">
+          
+          
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown">Principales <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li ng-class="{active:isActive('/comprar-tiempos-compartidos')}"><a ng-href="#/comprar-tiempos-compartidos"> Comprar tiempos compartidos</a></li>
+                <li ng-class="{active:isActive('/alquilar-tiempos-compartidos')}"><a ng-href="#/alquilar-tiempos-compartidos"> Alquilar tiempos compartidos</a></li>
+                <li ng-class="{active:isActive('/')}"><a ng-href="#/"> Promociona tu agencia y/ó servicios</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown">Nosotros <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li ng-class="{active:isActive('/comprar-tiempos-compartidos')}"><a ng-href="#/quienes-somos"> Quienes somos</a></li>
+                <li ng-class="{ 'active': $state.is('front.listing') }"><a ng-href="#/listing"> Búsqueda</a></li>
+                <li ng-class="{ 'active': $state.is('front.condiciones-de-uso') }"><a ng-href="#/condiciones-de-uso"> Condiciones de úso</a></li>
+                <li ng-class="{ 'active': $state.is('front.politicas-de-privacidad') }"><a ng-href="#/politicas-de-privacidad"> Políticas de privacidad</a></li>
+                <li ng-class="{ 'active': $state.is('front.contacto') }"><a ng-href="#/contacto"> Contacto</a></li>
+                <li ng-class="{ 'active': $state.is('front.faqs') }"><a ng-href="#/faqs"> FAQS</a></li>
+              </ul>
+            </li>
+          </ul>
+          <!--
+          <form class="navbar-form navbar-left margin-none">
+            <div class="search-1">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="icon-search"></i></span>
+                <input type="text" class="form-control form-control-w-150" placeholder="Buscar ..">
+              </div>
+            </div>
+          </form>
+          -->
+          <ul class="nav navbar-nav navbar-right">
+            <!-- Login -->
+            <li class="dropdown" ng-hide="uid">
+              <a ng-href="#/login">
+                <i class="fa fa-fw fa-lock"></i> Accesar
+              </a>
+              <div class="dropdown-menu dropdown-size-280">
+                <form name="loginForm" class="form-horizontal" role="form">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                      <input type="text" class="form-control" placeholder="Email" ng-model="login.email" required focus />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-shield"></i></span>
+                      <input type="password" class="form-control" placeholder="Password"  ng-model="login.password" required focus />
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary" ng-click="doLogin(login)" data-ng-disabled="loginForm.$invalid">Accesar <i class="fa fa-sign-in"></i></button>
+                  </div>
+                </form>
+              </div>
+            </li>
+            <!-- // END login -->
+            <!-- Sign up -->
+            <li class="dropdown" ng-hide="uid">
+              <!--class="dropdown-toggle" data-toggle="dropdown" -->
+              <a ng-href="#/signup">
+                <i class="fa fa-fw fa-plus"></i> Registro
+              </a>
+              <div class="dropdown-menu dropdown-size-280">
+                <form>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group form-control-default">
+                        <label for="exampleInputFirstName">Nombre Completo</label>
+                        <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Tu nombre completo">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-control-default required">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingresa tu email">
+                  </div>
+                  <div class="form-group form-control-default required">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+
+                  <span class="lbl col-sm-3"> </span><div class="col-sm-7">¿Necesitas una cuenta? <a ng-href="#/signup">Crear cuenta</a></div>
+
+                  <button type="submit" class="btn btn-primary">Registrar</button>
+                </form>
+              </div>
+            </li>
+            <!-- // END sign up -->
+            <!-- user -->
+            <li class="dropdown user" ng-show="uid">
+              <a class="dropdown-toggle" data-toggle="dropdown">
+                Mi Cuenta<span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-header">UID: {{uid}}</li>
+                <li class="dropdown-header">NOMBRE: {{nombre}}</li>
+                <li class="dropdown-header">E-MAIL: {{email}}</li>
+                <li><a href="#"><i class="fa fa-user"></i>Mis datos</a></li>
+                <li class="dropdown-header">Mis propiedades</li>
+                <li><a href="#" ui-sref="property.edit"><i class="fa fa-plus"></i>Agregar</a></li>
+                <li><a href="#"><i class="fa fa-wrench"></i>Administrar</a></li>
+                <li><a ng-click="logout();"><i class="fa fa-sign-out"></i>Salir</a></li>
+              </ul>
+            </li>
+            <!-- // END user -->
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+
+      </div>
+      
+    </div>
+  </nav>
+
+  

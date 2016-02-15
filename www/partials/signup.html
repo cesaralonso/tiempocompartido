@@ -1,0 +1,111 @@
+<div class="breadcrumbs" id="breadcrumbs">
+  <ul class="breadcrumb">
+    <li>
+      <a href="#">Inicio</a>
+    </li>
+    <li class="active">Crear cuenta</li>
+  </ul>
+</div>
+<div id="content">
+  <div class="bg-white">
+    <div class="container">
+      <div class="page-section">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <div id="login-box" class="login-box visible widget-box no-border">
+              <div class="widget-body">
+                <div class="widget-main">
+                  <h4 class="header blue lighter bigger">
+                      Registro en Tiempo Compartido
+                  </h4>
+                  <br/>
+                  <form name="signupForm" class="form-horizontal" role="form">
+                      <div class="form-group">
+                          <label class="col-sm-5 control-label no-padding-right" for="email">Usuario</label>
+                          <div class="col-sm-7">
+                              <span class="block input-icon input-icon-right">
+                                  <input type="text" class="form-control" placeholder="Escribe un correcto" name="email" ng-model="signup.user" focus/>
+                                  <span ng-show="signupForm.user.$error.user" class="help-inline">Usuario incorrecto</span> 
+                              </span>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-sm-5 control-label no-padding-right" for="email">Email</label>
+                          <div class="col-sm-7">
+                              <span class="block input-icon input-icon-right">
+                                  <input type="text" class="form-control" placeholder="Escribe un Email correcto" name="email" ng-model="signup.email" focus/>
+                                  <span ng-show="signupForm.email.$error.email" class="help-inline">Email incorrecto</span> 
+                              </span>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-sm-5 control-label no-padding-right" for="password">Contraseña</label>
+                          <div class="col-sm-7">
+                              <span class="block input-icon input-icon-right">
+                          <input type="password" class="form-control" name = "password" placeholder="Escribe una contraseña" ng-model="signup.password" required/>
+                          <small class="errorMessage" data-ng-show="signupForm.password.$dirty && signupForm.password.$invalid"> Escribe una contraseña.</small>
+                      </span>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-sm-5 control-label no-padding-right" for="password2">Confirma la contraseña</label>
+                          <div class="col-sm-7">
+                              <span class="block input-icon input-icon-right">
+                          <input type="password" class="form-control" name="password2" placeholder="Repite la contraseña" ng-model="signup.password2" password-match="signup.password" required/>                                
+                          <small class="errorMessage" data-ng-show="signupForm.password2.$dirty && signupForm.password2.$error.required"> Repite la contraseña.</small>
+
+                         <small class="errorMessage" data-ng-show="signupForm.password2.$dirty && signupForm.password2.$error.passwordNoMatch && !signupForm.password2.$error.required"> La contraseña no coincide.</small>
+                      </span>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-sm-5 control-label no-padding-right" for="nombre">Nombre completo</label>
+                          <div class="col-sm-7">
+                              <span class="block input-icon input-icon-right">
+                          <input type="text" class="form-control" placeholder="Nombre completo" name="nombre" ng-model="signup.nombre" />
+                      </span>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-sm-5 control-label no-padding-right" for="telefono">Teléfono</label>
+                          <div class="col-sm-7">
+                              <span class="block input-icon input-icon-right">
+                          <input type="text" class="form-control" placeholder="(Lada) + Número a 10 dígitos" name="telefono" ng-model="signup.telefono"/>
+                          </span>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-sm-5 control-label no-padding-right" for="pais">Lugar de residencia, Pais</label>
+                          <div class="col-sm-7">
+                              <span class="block input-icon input-icon-right">
+                          <input type="text" class="form-control" placeholder="Pais, Estado y Ciudad" name="pais" ng-model="signup.pais" />
+                          </span>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-sm-5 control-label no-padding-right" for="ciudad">Lugar de residencia, Ciudad</label>
+                          <div class="col-sm-7">
+                              <span class="block input-icon input-icon-right">
+                          <input type="text" class="form-control" placeholder="Pais, Estado y Ciudad" name="ciudad" ng-model="signup.ciudad" />
+                          </span>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <span class="lbl col-sm-5"> </span>
+                          <div class="col-sm-7">
+                              <button type="submit" class="width-35 pull-right btn btn-sm btn-primary" ng-click="signUp(signup)" data-ng-disabled="signupForm.$invalid">
+                                  Crear cuenta
+                              </button>
+                          </div>
+                      </div>
+                      <div class="col-sm-7">¿Ya tienes una cuenta? <a href="#/login">Accesar</a></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /.page-content -->
+    </div>
+  </div>
+</div>

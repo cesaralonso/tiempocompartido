@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="myApp">
+    <head >
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Tiempo Compartido {{title}}</title>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/custom.css" rel="stylesheet">
+        <link href="css/toaster.css" rel="stylesheet">
+        <link href="css/vendor/all.css" rel="stylesheet">
+        <!--
+        <link href="css/vendor/slick.css" rel="stylesheet">
+        <link href="css/vendor/slick-theme.css" rel="stylesheet">
+        <link href="css/vendor/material-design-iconic-font.css" rel="stylesheet">
+        <link href="css/vendor/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
+        -->
+        <link href="css/app/app.css" rel="stylesheet">
+        <script src="js/vendor/core/jquery.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-route.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-jwt/dist/angular-jwt.js"></script>
+        <script type="text/javascript" src="bower_components/a0-angular-storage/dist/angular-storage.js"></script>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]><link href= "css/bootstrap-theme.css"rel= "stylesheet" >
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <script src='http://maps.googleapis.com/maps/api/js?key=&sensor=false&extension=.js'></script>
+    </head>
+    <body ng-cloak="" style="">
+        <div class="container" style="padding:0px;">
+            <div ng-include="'partials/cabecera.html'"></div>
+            <div data-ng-view="" id="ng-view" class="slide-animation"></div>
+            <div ng-include="'partials/pie.html'"></div>
+        </div>
+        <toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
+        <!-- Libs -->
+        <script src="js/angular-animate.min.js" ></script>
+        <script src="js/toaster.js"></script>
+        <script src="js/vendor/core/bootstrap.js"></script>
+        <script src="js/vendor/core/jssor.slider.mini.js"></script>
+        <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+        <script src="js/jquery-ui/core.js"></script>
+        <!--
+        <script src="js/vendor/media/slick.min.js"></script>
+        -->
+        <script src="bower_components/slick-carousel/slick/slick.js"></script>
+        <script src="bower_components/angular-slick/dist/slick.js"></script>
+        <script src="app/app.js"></script>
+        <!---->
+        
+        <script src="app/data.js"></script>
+        <script src="app/directives.js"></script>
+        
+        <script src="app/inicioCtrl.js"></script>
+        <script src="app/authCtrl.js"></script>
+        
+        <script src="app/propertyCtrl.js"></script>
+        <!-- -->
+        <script src="js/app/app.js"></script>
+        <script src="js/angular/_datepicker.js"></script>
+        
+    </body>
+</html>
